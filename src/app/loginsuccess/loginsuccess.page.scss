@@ -1,0 +1,30 @@
+#linkexpired {
+    overflow: auto 0;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    .wrapper {
+        //width: 50%;
+        text-align: center;
+        .llustrator {
+        }
+        h1 {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 30px;
+            margin-top: 60px;
+        }
+        .notes {
+            font-family: 'Lato', sans-serif;
+            font-size: 14px;
+            color: #919191;
+            display: block;
+            margin-top: 30px;
+            .imp {
+                color: #10A9F5;
+            }
+        }
+        app-button {
+            margin-top: 20px;
+        }
+    }
+}

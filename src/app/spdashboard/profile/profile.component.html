@@ -1,0 +1,79 @@
+<div class="spadd">
+    <div class="dash-header">
+      <div class="list">
+        <div class="text">
+          User Profile
+        </div>
+      </div>
+    </div>
+    <div class="exp-pand">
+      <div class="panel-title">
+       My Profile
+      </div>
+      <div class="form-block">
+          <div class="file">
+            <input type="file" class="filetype" (change)="imageUpload($event)" accept="image/x-png,image/jpg,image/jpeg">
+            <div class="logo" *ngIf="!imgUrl">
+              <mat-icon>add_a_photo</mat-icon>
+              <div class="overlay"></div>
+            </div>
+            <img [src]="imgUrl" *ngIf="imgUrl">
+          </div>
+        <div class="forms" [formGroup]="userForm">
+          <div class="form-group">
+            <div class="form-felid">
+              <label>Name</label>
+              <input type="text" placeholder="Name" formControlName="userName">
+            </div>
+            <div class="form-felid">
+              <label>Email</label>
+              <input type="text" placeholder="example@gmail.com" formControlName="emailId" disabled="true">
+            </div>
+            <div class="form-felid">
+              <label>Mobile</label>
+              <input type="text" placeholder="00000000000" formControlName="mobileNo">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="btn">
+        <app-button label="Save" (click)="updateProfile()">
+        </app-button>
+        </div>
+    </div>
+    <div class="exp-pand">
+        <div class="panel-title">
+         Change Password
+        </div>
+        <div class="form-block">
+            <div class="file">
+              <!-- <input type="file" class="filetype" (change)="imageUpload($event)" accept="image/x-png,image/jpg,image/jpeg">
+              <div class="logo" *ngIf="!imgUrl">
+                <mat-icon>add_a_photo</mat-icon>
+                <div class="overlay"></div>
+              </div>
+              <img [src]="imgUrl" *ngIf="imgUrl"> -->
+            </div>
+          <div class="forms"  [formGroup]="passwordForm">
+            <div class="form-group">
+              <div class="form-felid">
+                <label>Current Password</label>
+                <input type="password" placeholder="Enter the Current Password" formControlName="currentPassword">
+              </div>
+              <div class="form-felid">
+                <label>New Password</label>
+                <input type="password" placeholder="Enter the New Password" formControlName="newPassword">
+              </div>
+              <div class="form-felid">
+                <label>Confrim Password</label>
+                <input type="password" placeholder="Enter the Confrim Password" formControlName="confirmPassword">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="btn">
+          <app-button label="Save" (click)="changePassword()">
+          </app-button>
+          </div>
+      </div>
+  </div>

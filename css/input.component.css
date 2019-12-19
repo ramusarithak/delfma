@@ -1,0 +1,23 @@
+input {
+  border: 1px solid #DDDDDD;
+  border-radius: 4px;
+  height: 36px;
+  display: inline-block;
+  width: 100%;
+}
+
+input[placeholder] {
+  font-size: 14px;
+  font-family: 'Lato', sans-serif;
+  padding-left: 20px;
+}
+
+.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+:host {
+  display: inline-block;
+  width: 100%;
+}
+/*# sourceMappingURL=input.component.css.map */

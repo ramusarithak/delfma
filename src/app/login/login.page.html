@@ -1,0 +1,36 @@
+<div id="login">
+  <div class="login-blank">
+      <h1>Let’s Kick Now !</h1>      
+  </div>
+  <div class="login-content">
+      <h1>Welcome to<br> Facility Management</h1>
+      <span class="line"></span>
+      <span class="notes">Sign in by entering the informations below</span>
+      <div class="form" [formGroup]="loginForm">
+        <div class="form-field">
+          <app-label label="User Name"></app-label>
+          <app-input placeholder="Username" type="text" [form]="loginForm" name="username"></app-input>
+          <app-input-error *ngIf="loginForm.get('username').touched && loginForm.get('username').hasError('required')">Username is required</app-input-error>
+        </div>
+        <div class="form-field">
+            <app-label label="Password"></app-label>
+            <app-input placeholder="Password" [type]="type" [form]="loginForm" name="password"></app-input>
+            <!-- <img src="../../assets/icon/eye.svg" (click)="togglePass()"> -->
+            <app-input-error *ngIf="loginForm.get('password').touched && loginForm.get('password').hasError('required')">Password is required</app-input-error>
+        </div>
+        <!-- <div class="rem-forgot">
+          <app-checkbox label="Remeber me" value="remeber"></app-checkbox>        
+
+
+          <span><a routerLink="/forgotpassword">Forgot Password</a></span>
+        </div> -->
+
+        <div class="rem-forgot" >
+          <input type="checkbox" formControlName="Remember" value="Remember"> <label class="remember">Remember me</label>
+          <span><a routerLink="/forgotpassword">Forgot Password</a></span>
+        </div>
+
+        <app-button label="Login" [disabled]="loginForm.invalid" (click)="login()"></app-button>
+      </div>
+  </div>
+</div>

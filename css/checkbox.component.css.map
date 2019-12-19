@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,IAAI,CAAC;EACD,KAAK,EAAE,OAAO;EACd,WAAW,EAAE,kBAAkB;EAC/B,SAAS,EAAE,IAAI;EACf,MAAM,EAAE,OAAO;CAClB",
+    "sources": [
+        "../src/app/shared/checkbox/checkbox.component.scss"
+    ],
+    "names": [],
+    "file": "checkbox.component.css"
+}

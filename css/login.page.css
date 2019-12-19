@@ -1,0 +1,111 @@
+#login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  overflow: auto;
+}
+
+#login .login-blank {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  background-color: #10A9F5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#login .login-blank h1 {
+  color: #FFFAFA;
+  font-family: 'Work Sans', sans-serif;
+  text-align: center;
+  padding-bottom: 90px;
+}
+
+#login .login-content {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  padding: 0 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: auto;
+}
+
+#login .login-content h1 {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 35px;
+  margin-bottom: 0px;
+}
+
+#login .login-content .line {
+  width: 70px;
+  background-color: #00A8F8;
+  height: 3px;
+  display: block;
+}
+
+#login .login-content .notes {
+  color: #DDDDDD;
+  font-size: 18x;
+  font-family: 'Work Sans', sans-serif;
+  margin-top: 16px;
+  display: block;
+}
+
+#login .login-content .form {
+  margin-top: 39px;
+}
+
+#login .login-content .form .form-field {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+#login .login-content .form .form-field app-label {
+  margin-bottom: 6px;
+}
+
+#login .login-content .form .form-field img {
+  position: absolute;
+  top: 0;
+  right: 4%;
+  cursor: pointer;
+}
+
+#login .login-content .form .rem-forgot {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#login .login-content .form .rem-forgot span {
+  color: #10A9F5;
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+#login .login-content .form app-button {
+  margin-top: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=login.page.css.map */

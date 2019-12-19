@@ -1,0 +1,138 @@
+<div class="spadd">
+  <div class="dash-header">
+    <div class="list">
+      <div class="text">
+        Add Customer
+      </div>
+    </div>
+  </div>
+  <div class="exp-pand">
+    <div class="panel-title">
+      Customer Details
+    </div>
+    <div class="form-block">
+        <div class="file">
+          <input type="file" class="filetype" (change)="imageUpload($event)" accept="image/x-png,image/jpg,image/jpeg">
+          <div class="logo" *ngIf="!imgUrl">
+            <mat-icon>add_a_photo</mat-icon>
+            <div class="overlay"></div>
+          </div>
+          <img [src]="imgUrl" *ngIf="imgUrl">
+        </div>
+      <div class="forms" [formGroup]="customerForm">
+        <div class="form-group">
+          <div class="form-felid">
+            <label>Customer Name</label>
+            <input type="text" placeholder="Customer Name" formControlName="customerName">
+            <app-input-error
+              *ngIf="customerForm.get('customerName').touched && customerForm.get('customerName').hasError('pattern')">
+              Enter valid Name</app-input-error>
+
+            <app-input-error
+              *ngIf="customerForm.get('customerName').touched && customerForm.get('customerName').hasError('required')">
+              Customer name is required</app-input-error>
+          </div>
+          <div class="form-felid">
+            <label>Customer Initial</label>
+            <input type="text" ngModel maxlength="5" placeholder="AAA" formControlName="customerInitial">
+            <app-input-error
+              *ngIf="customerForm.get('customerInitial').touched && customerForm.get('customerInitial').hasError('required')">
+              Customer initial is required</app-input-error>
+            <app-input-error
+              *ngIf="customerForm.get('customerInitial').touched && customerForm.get('customerInitial').hasError('pattern')">
+              Enter valid Customer initial</app-input-error>
+          </div>
+        </div>
+        <div class="form-felid">
+          <label>Address</label>
+          <input type="text" placeholder="Enter your address" formControlName="customerAddress">
+          <app-input-error
+            *ngIf="customerForm.get('customerAddress').touched && customerForm.get('customerAddress').hasError('required')">
+            Address is required</app-input-error>
+          <div class="inner-form">
+            <div class="form-felid">
+              <input type="text" placeholder="Country" formControlName="customerCountry">
+              <app-input-error
+                *ngIf="customerForm.get('customerCountry').touched && customerForm.get('customerCountry').hasError('required')">
+                Country is required</app-input-error>
+              <app-input-error
+                *ngIf="customerForm.get('customerCountry').touched && customerForm.get('customerCountry').hasError('pattern')">
+                Enter valid Country</app-input-error>
+            </div>
+            <div class="form-felid">
+              <input type="text" placeholder="State" formControlName="customerState">
+              <app-input-error
+                *ngIf="customerForm.get('customerState').touched && customerForm.get('customerState').hasError('required')">
+                State is required</app-input-error>
+              <app-input-error
+                *ngIf="customerForm.get('customerState').touched && customerForm.get('customerState').hasError('pattern')">
+                Enter the valid State</app-input-error>
+            </div>
+            <div class="form-felid">
+              <input type="number" ngModel maxlength="6" placeholder="Zip Code" formControlName="customerZipCode">
+              <app-input-error
+                *ngIf="customerForm.get('customerZipCode').touched && customerForm.get('customerZipCode').hasError('required')">
+                ZipCode is required</app-input-error>
+              <app-input-error
+                *ngIf="customerForm.get('customerZipCode').touched && customerForm.get('customerZipCode').hasError('pattern')">
+                Enter the valid zipCode </app-input-error>
+            </div>
+
+
+
+
+
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-felid">
+            <label>Email</label>
+            <input type="text" placeholder="exampl@gmail.com" formControlName="customerEmail">
+            <app-input-error
+              *ngIf="customerForm.get('customerEmail').touched && customerForm.get('customerEmail').hasError('required')">
+              Email is required</app-input-error>
+            <app-input-error
+              *ngIf="customerForm.get('customerEmail').touched && customerForm.get('customerEmail').hasError('pattern')">
+              Enter the valid email id </app-input-error>
+          </div>
+          <div class="form-felid">
+            <label>Mobile</label>
+            <input type="number" maxlength="10" placeholder="0000 0000">
+
+          </div>
+          <div class="form-felid">
+            <label>Phone</label>
+            <input type="number" maxlength="10" placeholder="0000 0000" formControlName="customerPhoneNo">
+            <app-input-error
+              *ngIf="customerForm.get('customerPhoneNo').touched && customerForm.get('customerPhoneNo').hasError('required')">
+              Phone is
+              required</app-input-error>
+            <app-input-error
+              *ngIf="customerForm.get('customerPhoneNo').touched && customerForm.get('customerPhoneNo').hasError('pattern')">
+              Enter the valid phone number</app-input-error>
+          </div>
+          <div class="form-felid">
+            <label>VAT No</label>
+            <input type="number" placeholder="0000 0000" formControlName="customerVatNo">
+            <app-input-error
+              *ngIf="customerForm.get('customerVatNo').touched && customerForm.get('customerVatNo').hasError('required')">
+              Vat is
+              required</app-input-error>
+            <app-input-error
+              *ngIf="customerForm.get('customerVatNo').touched && customerForm.get('customerVatNo').hasError('pattern')">
+              Enter the valid vat number</app-input-error>
+          </div>
+          <div class="btn">
+            <button class="border-btn">Canel</button>
+            <app-button label="Save" *ngIf="!updateData" [disabled]="customerForm.invalid" (click)="addCustomer()">
+            </app-button>
+            <app-button label="Update" *ngIf="updateData"  [disabled]="customerForm.invalid" (click)="updateCustomer()"></app-button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>

@@ -1,0 +1,128 @@
+.splist .dash-header .list .text {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #DFF2FD;
+}
+
+.splist .listing {
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.splist .listing .list-item {
+  width: 180px;
+  height: 180px;
+  margin: 20px;
+  border-radius: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+}
+
+.splist .listing .list-item:hover {
+  background-color: #F0F0F0;
+}
+
+.splist .listing .list-item .btn {
+  width: 36px;
+  height: 36px;
+  background-color: #F7F8FB;
+  border-radius: 50%;
+  color: #0091E6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.splist .listing .list-item .btn span {
+  font-size: 20px;
+}
+
+.splist .listing .list-item .edit-icon {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 12px;
+}
+
+.splist .listing .list-item .edit-icon img {
+  width: 16px;
+  height: 16px;
+  margin: 0px 12px;
+  cursor: pointer;
+}
+
+.splist .listing .list-item .sp-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #DFF2FD;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.splist .listing .list-item .title {
+  margin-top: 12px;
+}
+
+.splist .listing .list-item .title span {
+  font-family: "Work Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.splist .listing .list-item .sb-title {
+  margin-top: 9px;
+}
+
+.splist .listing .list-item .sb-title span {
+  font-family: 'Lato', sans-serif;
+  color: #9EA0A5;
+  font-size: 12px;
+}
+
+.splist .listing .add-provider {
+  border: 2px dashed #707070;
+}
+
+.splist .listing .list-provider {
+  -webkit-box-shadow: 0px 1px 6px #4B4E5026;
+          box-shadow: 0px 1px 6px #4B4E5026;
+  cursor: auto;
+}
+/*# sourceMappingURL=splist.component.css.map */

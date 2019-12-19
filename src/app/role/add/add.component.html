@@ -1,0 +1,28 @@
+<div class="spadd">
+    <div class="dash-header">
+      <div class="list">
+        <div class="text">
+          Add Role
+        </div>
+      </div>
+    </div>
+    <div class="exp-pand">
+      <div class="form-block">
+        <div class="forms" [formGroup]="roleForm">
+          <div class="form-group">
+            <div class="form-felid">
+              <label>Role Name</label>
+              <input type="text" placeholder="Role Name" formControlName="roleName">
+              <app-input-error *ngIf="roleForm.get('roleName').touched && roleForm.get('roleName').hasError('required')">
+                Role Name is required</app-input-error>
+            </div>
+            <div class="btn">
+              <button class="border-btn" (click)="cancel()">Cancel</button>
+              <app-button label="Save" *ngIf="!data" [disabled]="roleForm.invalid" (click)="addRole()"></app-button>
+              <app-button label="Update"  *ngIf="data" [disabled]="roleForm.invalid" (click)="updateRole()"></app-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

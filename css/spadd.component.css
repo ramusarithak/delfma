@@ -1,0 +1,107 @@
+.spadd .dash-header .list .text {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #DFF2FD;
+}
+
+.spadd .exp-pand {
+  padding: 20px;
+}
+
+.spadd .exp-pand .mat-expansion-panel-header {
+  height: 50px !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 0;
+}
+
+.spadd .exp-pand .mat-expansion-panel-header .mat-expansion-panel-header-title {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+}
+
+.spadd .exp-pand .form-block {
+  padding: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.spadd .exp-pand .form-block .logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #F0F0F0;
+  margin-right: 50px;
+}
+
+.spadd .exp-pand .form-block .forms {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.spadd .exp-pand .form-block .forms .form-felid {
+  margin-bottom: 16px;
+}
+
+.spadd .exp-pand .form-block .forms .form-felid input {
+  border: 1px solid #DDDDDD;
+  border-radius: 4px;
+  height: 36px;
+  display: inline-block;
+  width: 100%;
+}
+
+.spadd .exp-pand .form-block .forms .form-felid input[placeholder] {
+  font-size: 14px;
+  font-family: 'Lato', sans-serif;
+  padding-left: 20px;
+}
+
+.spadd .exp-pand .form-block .forms .form-felid .inner-form {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 16px;
+}
+
+.spadd .exp-pand .form-block .forms .form-felid .inner-form input {
+  width: 30%;
+}
+
+.spadd .exp-pand .form-block .forms .form-felid .ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+.spadd .exp-pand .form-block .forms .form-felid label {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.spadd .exp-pand .form-block .forms .form-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.spadd .exp-pand .form-block .forms .form-group .form-felid {
+  width: 45%;
+}
+
+.spadd .exp-pand .mat-action-row {
+  border: 0;
+}
+/*# sourceMappingURL=spadd.component.css.map */

@@ -1,0 +1,93 @@
+<div class="spadd">
+  <div class="dash-header">
+    <div class="list">
+      <div class="text">
+        Add User
+      </div>
+    </div>
+  </div>
+  <div class="exp-pand">
+    <div class="panel-title">
+      User Details
+    </div>
+    <div class="form-block">
+        <div class="file">
+          <input type="file" class="filetype" (change)="imageUpload($event)" accept="image/x-png,image/jpg,image/jpeg">
+          <div class="logo" *ngIf="!imgUrl">
+            <!-- <mat-icon>add_a_photo</mat-icon> -->
+            <div class="overlay"></div>
+          </div>
+          <img [src]="imgUrl" *ngIf="imgUrl">
+        </div>
+      <div class="forms" [formGroup]="userForm">
+        <div class="form-group">
+          <div class="form-felid">
+            <label>User Name</label>
+            <input type="text" placeholder="User Name" formControlName="userName">
+          </div>
+        </div>
+        <div class="form-felid">
+          <label>Address</label>
+          <input type="text" placeholder="Enter your address" formControlName="address">
+          <div class="inner-form">
+            <input type="text" placeholder="State" formControlName="state">
+            <input type="text" placeholder="Zip Code" formControlName="zipCode">
+            <input type="text" placeholder="Country" formControlName="country">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-felid">
+            <label>Email</label>
+            <input type="text" placeholder="exampl@gmail.com" formControlName="emailId">
+          </div>
+          <div class="form-felid">
+            <label>Mobile</label>
+            <input type="text" placeholder="0000 0000" formControlName="mobileNo">
+          </div>
+          <div class="form-felid">
+            <label>Phone</label>
+            <input type="text" placeholder="0000 0000" formControlName="phoneNo">
+          </div>
+          <div class="form-felid">
+            <label>Role</label>
+            <select formControlName="role">
+              <option *ngFor="let role of roleData" [value]="role.id">{{role.roleName | titlecase}}</option>
+            </select>
+          </div>
+          <div class="form-felid">
+            <label>Service Provider</label>
+            <select formControlName="serviceProviderId">
+              <option *ngFor="let service of serviceProData" [value]="service.id">
+                {{service.serviceProviderName | titlecase}}</option>
+            </select>
+          </div>
+          <ng-template [ngIf]="clientManager">
+            <div class="form-felid">
+              <label>Customer</label>
+              <select formControlName="customerId">
+                <option *ngFor="let customer of customerData" [value]="customer.id">
+                  {{customer.customerName | titlecase}}</option>
+              </select>
+            </div>
+            <div class="form-felid">
+              <label>Facility</label>
+              <select formControlName="facilityId">
+                <option *ngFor="let facility of facilityData" [value]="facility.id">
+                  {{facility.facilityName | titlecase}}</option>
+              </select>
+            </div>
+          </ng-template>
+
+          <div class="btn">
+            <button class="border-btn">Canel</button>
+            <app-button label="Save" *ngIf="!updateData" (click)="addUser()"></app-button>
+            <app-button label="Update" *ngIf="updateData" (click)="updateUser()"></app-button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>

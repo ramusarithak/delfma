@@ -1,0 +1,28 @@
+<div class="spadd">
+  <div class="dash-header">
+    <div class="list">
+      <div class="text">
+        Add Job Priority
+      </div>
+    </div>
+  </div>
+  <div class="exp-pand">
+    <div class="form-block">
+      <div class="forms" [formGroup]="priorityForm">
+        <div class="form-group">
+          <div class="form-felid">
+            <label>Job Priority</label>
+            <input type="text" placeholder="Job Priority" formControlName="jobPriority">
+            <app-input-error *ngIf="priorityForm.get('jobPriority').touched && priorityForm.get('jobPriority').hasError('required')">
+                Job Priority is required</app-input-error>
+          </div>
+          <div class="btn">
+            <button class="border-btn" (click)="cancel()">Cancel</button>
+            <app-button label="Save" *ngIf="!data" [disabled]="priorityForm.invalid" (click)="addPriority()"></app-button>
+            <app-button label="Update"  *ngIf="data" [disabled]="priorityForm.invalid" (click)="updatePriority()"></app-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

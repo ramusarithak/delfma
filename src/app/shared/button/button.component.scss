@@ -1,0 +1,18 @@
+button {
+    height: 36px;
+    background-color: #10A9F5;
+    color: #FFFAFA;
+    border-radius: 5px;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    padding: 9px 24px;
+    font-weight: 600;
+}
+
+:host {
+    display: inline-block;
+}
+
+button[disabled] {
+    cursor: not-allowed;
+}

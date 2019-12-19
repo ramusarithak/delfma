@@ -1,0 +1,78 @@
+#login {
+    display: flex;
+    height: 100%;
+    overflow: auto;
+    .login-blank {
+        flex-basis: 50%;
+        background-color: #10A9F5;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        h1 {
+            color: #FFFAFA;
+            font-family: 'Work Sans', sans-serif;
+            text-align: center;
+            padding-bottom: 90px;
+        }
+    }
+    .login-content {
+        flex-basis: 50%;
+        padding: 0 70px;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        h1 {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 35px;
+            margin-bottom: 0px
+        }
+        .line {
+            width: 70px;
+            background-color: #00A8F8;
+            height: 3px;
+            display: block;
+        }
+        .notes {
+            color: #DDDDDD;
+            font-size: 18x;
+            font-family: 'Work Sans', sans-serif;
+            margin-top: 16px;
+            display: block;
+        }
+        .form {
+            margin-top: 39px;
+            .form-field {
+                position: relative;
+                margin-bottom: 20px;
+                app-label {
+                    margin-bottom: 6px;
+                }
+                img {
+                    position: absolute;
+                    top: 0;
+                    right: 4%;
+                    cursor: pointer;
+                }
+            }
+            .rem-forgot {
+                display: flex;
+                justify-content: space-between;
+                span {
+                    color: #10A9F5;
+                    font-family: 'Lato', sans-serif;
+                    font-size: 12px;
+                    cursor: pointer;
+                }
+            }
+            app-button {
+                margin-top: 40px;
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+    label.remember {
+        /* display: flex; */
+        margin-left: -67%;
+    }
+}

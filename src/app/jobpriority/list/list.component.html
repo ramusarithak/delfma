@@ -1,0 +1,69 @@
+<div class="splist">
+  <div class="dash-header">
+    <div class="list">
+      <div class="text">
+        Job Priority
+      </div>
+      <div class="search-input">
+        <mat-icon>search</mat-icon>
+        <input type="text" placeholder="Search Priority" [formControl]="searchWord" (keyup)="valueChanges($event)">
+      </div>
+    </div>
+  </div>
+  <div class="listing">
+    <div class="btn">
+      <button class="addbtn" (click)="openDialog()"><span>+</span>Add Priority</button>
+    </div>
+    <div class="table">
+      <table cdk-table [dataSource]="dataSource">
+        <!-- Position Column -->
+        <ng-container cdkColumnDef="priorityname">
+          <th cdk-header-cell *cdkHeaderCellDef> Job Priority </th>
+          <td cdk-cell *cdkCellDef="let element"> {{element.jobPriority | titlecase}} </td>
+        </ng-container>
+
+        <ng-container cdkColumnDef="status">
+          <th cdk-header-cell *cdkHeaderCellDef> Status </th>
+          <td cdk-cell *cdkCellDef="let element">
+            <ng-template [ngIf]="element.isActive == 1" [ngIfElse]="inActive">
+              <span class="cricle"></span> Active
+            </ng-template>
+            <ng-template #inActive>
+              <span class="cricle inactive"></span> In Active
+            </ng-template>
+          </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container cdkColumnDef="action">
+          <th cdk-header-cell *cdkHeaderCellDef class="action-hed"> Action </th>
+          <td cdk-cell *cdkCellDef="let element">
+            <mat-icon (click)="edit(element.id)" *ngIf="element.isActive==1" matTooltip="Edit">edit</mat-icon>
+            <mat-icon *ngIf="element.isActive!=1">edit</mat-icon>
+            <mat-icon *ngIf="element.isActive==1" matTooltip="In Active" (click)="delete(element.id)"> delete</mat-icon>
+            <mat-icon *ngIf="element.isActive!=1" (click)="activeRole(element.id)" matTooltip="Active"> done</mat-icon>
+          </td>
+        </ng-container>
+
+        <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
+        <tr cdk-row *cdkRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <!-- <div class="pagintator">
+        <div class="numbers">
+          <div class="btns">
+            <div class="pervious">
+              <mat-icon>navigate_before</mat-icon>
+            </div>
+            <div class="next">
+              <mat-icon>navigate_next</mat-icon>
+            </div>
+          </div>
+          <div class="item active">1</div>
+          <div class="item">2</div>
+          <div class="item">3</div>
+          <div class="item">4</div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>

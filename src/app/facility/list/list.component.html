@@ -1,0 +1,99 @@
+<div class="splist">
+  <div class="dash-header">
+    <div class="list">
+      <div class="text">
+        Facility
+      </div>
+      <div class="search-input">
+        <mat-icon>search</mat-icon>
+        <input type="text" placeholder="Search Facility" [formControl]="searchWord" (keyup)="valueChanges($event)">
+      </div>
+    </div>
+  </div>
+  <!-- <div class="listing" *ngIf="!tableView">
+    <div class="list-item add-provider" routerLink="addcustomer">
+      <div class="btn">
+        <span>+</span>
+      </div>
+      <div class="title">
+        <span>Add Customers</span>
+      </div>
+    </div>
+    <div class="list-item list-provider"  *ngFor="let customer of dataSource">
+      <div class="edit-icon">
+        <img src="../../../assets/icon/edit.svg" [routerLink]="'edit/'+customer.id">
+        <img src="../../../assets/icon/coner.svg">
+      </div>
+      <div class="sp-logo">
+        <img src="../../../assets/imagelogo.svg">
+      </div>
+      <div class="title">
+        <span>{{customer.customerName}}</span>
+      </div>
+      <div class="sb-title">
+        <span>{{customer.customerCountry}}, {{customer.customerCountry}}</span>
+      </div>
+    </div>
+  </div> -->
+  <div class="table-listing">
+      <div class="btn">
+        <button class="addbtn" routerLink="addfacility"><span>+</span>Add Facility</button>
+      </div>
+      <div class="table">
+        <table cdk-table [dataSource]="dataSource">
+
+            <ng-container cdkColumnDef="initial">
+                <th cdk-header-cell *cdkHeaderCellDef> Initial </th>
+                <td cdk-cell *cdkCellDef="let element"> {{element.facilityInitial}} </td>
+              </ng-container>
+
+          <ng-container cdkColumnDef="name">
+            <th cdk-header-cell *cdkHeaderCellDef> Name </th>
+            <td cdk-cell *cdkCellDef="let element"> {{element.facilityName}} </td>
+          </ng-container>
+
+          <ng-container cdkColumnDef="mobile">
+              <th cdk-header-cell *cdkHeaderCellDef> Mobile No </th>
+              <td cdk-cell *cdkCellDef="let element"> {{element.facilityMobileNo}} </td>
+            </ng-container>
+
+            <ng-container cdkColumnDef="customername">
+                <th cdk-header-cell *cdkHeaderCellDef> Customer Name </th>
+                <td cdk-cell *cdkCellDef="let element"> {{element.customerName}} </td>
+              </ng-container>
+
+              <ng-container cdkColumnDef="clientmanager">
+                  <th cdk-header-cell *cdkHeaderCellDef> Client Manager </th>
+                  <td cdk-cell *cdkCellDef="let element"> Shakthi </td>
+                </ng-container>
+  
+          <ng-container cdkColumnDef="action">
+            <th cdk-header-cell *cdkHeaderCellDef class="action-hed"> Action </th>
+            <td cdk-cell *cdkCellDef="let element">
+              <mat-icon [routerLink]="'edit/'+element.id">edit</mat-icon>
+              <mat-icon>delete</mat-icon>
+            </td>
+          </ng-container>
+  
+          <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
+          <tr cdk-row *cdkRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <!-- <div class="pagintator">
+          <div class="numbers">
+            <div class="btns">
+              <div class="pervious">
+                <mat-icon>navigate_before</mat-icon>
+              </div>
+              <div class="next">
+                <mat-icon>navigate_next</mat-icon>
+              </div>
+            </div>
+            <div class="item active">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+</div>

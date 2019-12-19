@@ -1,0 +1,202 @@
+<div class="splist">
+  <div class="dash-header">
+    <div class="list">
+      <div class="text">
+        Service Providers
+      </div>
+      <div class="search-input">
+        <mat-icon>search</mat-icon>
+        <input type="text" placeholder="Search Service Providers" [formControl]="searchWord" (keyup)="valueChanges($event)">
+      </div>
+    </div>
+  </div>
+  <div class="listing" *ngIf="!tableView">
+    <div class="list-item add-provider" routerLink="addsp">
+      <div class="btn">
+        <span>+</span>
+      </div>
+      <div class="title">
+        <span>Add Service Providers</span>
+      </div>
+    </div>
+    <!-- [routerLink]="sp.id" -->
+    <div class="list-item list-provider" *ngFor="let sp of dataSource"  [routerLink]="sp.id">
+      <div class="edit-icon">
+        <!-- <img src="../../../assets/icon/edit.svg" [routerLink]="'edit/'+sp.id">
+        <img src="../../../assets/icon/coner.svg"> -->
+           <div class="cus-menu">
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item [routerLink]="'edit/'+sp.id">
+                        Edit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mat-icon >edit</mat-icon>
+                    </button>
+                    <button mat-menu-item (click)="deleteSP(sp.id)">
+                        <span>Delete &nbsp;&nbsp;&nbsp;<mat-icon>delete</mat-icon></span>
+                    </button>
+                </mat-menu>
+            </div>
+      </div>
+      
+     
+
+      <!-- <div class="sp-logo">
+        <img src="../../../assets/imagelogo.svg">
+      </div> -->
+      <div class="sp-logo">
+        <img [src]="sp.serviceProviderPicture">
+      </div>
+      <div class="title">
+        <span>{{sp.serviceProviderName}}</span>
+      </div>
+      <div class="sb-title">
+        <span>{{sp.serviceProviderCountry}}</span>
+      </div>
+    </div>
+    <!-- <div class="list-item list-provider">
+      <div class="edit-icon">
+        <img src="../../../assets/icon/edit.svg" routerLink="addsp">
+        <img src="../../../assets/icon/coner.svg">  
+      </div>
+      <div class="sp-logo">
+        <img src="../../../assets/imagelogo.svg">
+      </div>
+      <div class="title">
+        <span>Casagrand</span>
+      </div>
+      <div class="sb-title">
+        <span>Chennai, Tamil Nadu</span>
+      </div>
+    </div>
+    <div class="list-item list-provider">
+      <div class="edit-icon">
+        <img src="../../../assets/icon/edit.svg">
+        <img src="../../../assets/icon/coner.svg">
+      </div>
+      <div class="sp-logo">
+        <img src="../../../assets/imagelogo.svg">
+      </div>
+      <div class="title">
+        <span>Casagrand</span>
+      </div>
+      <div class="sb-title">
+        <span>Chennai, Tamil Nadu</span>
+      </div>
+    </div>
+    <div class="list-item list-provider">
+      <div class="edit-icon">
+        <img src="../../../assets/icon/edit.svg">
+        <img src="../../../assets/icon/coner.svg">
+      </div>
+      <div class="sp-logo">
+        <img src="../../../assets/imagelogo.svg">
+      </div>
+      <div class="title">
+        <span>Casagrand</span>
+      </div>
+      <div class="sb-title">
+        <span>Chennai, Tamil Nadu</span>
+      </div>
+    </div>
+    <div class="list-item list-provider">
+      <div class="edit-icon">
+        <img src="../../../assets/icon/edit.svg">
+        <img src="../../../assets/icon/coner.svg">
+      </div>
+      <div class="sp-logo">
+        <img src="../../../assets/imagelogo.svg">
+      </div>
+      <div class="title">
+        <span>Casagrand</span>
+      </div>
+      <div class="sb-title">
+        <span>Chennai, Tamil Nadu</span>
+      </div>
+    </div>
+    <div class="list-item list-provider">
+      <div class="edit-icon">
+        <img src="../../../assets/icon/edit.svg">
+        <img src="../../../assets/icon/coner.svg">
+      </div>
+      <div class="sp-logo">
+        <img src="../../../assets/imagelogo.svg">
+      </div>
+      <div class="title">
+        <span>Casagrand</span>
+      </div>
+      <div class="sb-title">
+        <span>Chennai, Tamil Nadu</span>
+      </div>
+    </div> -->
+  </div>
+  <div class="table-listing" *ngIf="tableView">
+      <div class="btn">
+        <button class="addbtn" routerLink="addsp"><span>+</span>Add Service Provider</button>
+      </div>
+      <div class="table">
+        <table cdk-table [dataSource]="dataSource" >
+          <!-- Position Column -->
+          <!-- <ng-container cdkColumnDef="logo">
+            <th cdk-header-cell *cdkHeaderCellDef> Logo </th>
+            <td cdk-cell *cdkCellDef="let element">        
+              <img src="../../../assets/imagelogo.svg">
+            </td>
+          </ng-container> -->
+
+          <ng-container cdkColumnDef="logo">
+            <th cdk-header-cell *cdkHeaderCellDef> Logo </th>
+            <td cdk-cell *cdkCellDef="let element"> <img *ngIf="element.serviceProviderPicture" [src]="element.serviceProviderPicture"> </td>
+          </ng-container>
+
+          <ng-container cdkColumnDef="name">
+            <th cdk-header-cell *cdkHeaderCellDef> Name </th>
+            <td cdk-cell *cdkCellDef="let element"> {{element.serviceProviderName}} </td>
+          </ng-container>
+
+          <ng-container cdkColumnDef="mobile">
+              <th cdk-header-cell *cdkHeaderCellDef> Mobile No </th>
+              <td cdk-cell *cdkCellDef="let element"> {{element.serviceProviderMobileNo}} </td>
+            </ng-container>
+
+            <ng-container cdkColumnDef="state">
+                <th cdk-header-cell *cdkHeaderCellDef> State </th>
+                <td cdk-cell *cdkCellDef="let element"> {{element.serviceProviderState}} </td>
+              </ng-container>
+
+              <ng-container cdkColumnDef="country">
+                  <th cdk-header-cell *cdkHeaderCellDef> Country </th>
+                  <td cdk-cell *cdkCellDef="let element"> {{element.serviceProviderCountry}} </td>
+                </ng-container>
+  
+          <!-- Name Column -->
+          <ng-container cdkColumnDef="action">
+            <th cdk-header-cell *cdkHeaderCellDef class="action-hed"> Action </th>
+            <td cdk-cell *cdkCellDef="let element">
+              <mat-icon [routerLink]="'edit/'+element.id">edit</mat-icon>
+              <mat-icon>delete</mat-icon>
+            </td>
+          </ng-container>
+  
+          <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
+          <tr cdk-row *cdkRowDef="let row; columns: displayedColumns;" [routerLink]="row.id"></tr>
+        </table>
+        <!-- <div class="pagintator">
+          <div class="numbers">
+            <div class="btns">
+              <div class="pervious">
+                <mat-icon>navigate_before</mat-icon>
+              </div>
+              <div class="next">
+                <mat-icon>navigate_next</mat-icon>
+              </div>
+            </div>
+            <div class="item active">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+</div>

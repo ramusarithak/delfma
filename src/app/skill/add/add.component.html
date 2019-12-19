@@ -1,0 +1,28 @@
+<div class="spadd">
+  <div class="dash-header">
+    <div class="list">
+      <div class="text">
+        Add Skill
+      </div>
+    </div>
+  </div>
+  <div class="exp-pand">
+    <div class="form-block">
+      <div class="forms" [formGroup]="skillForm">
+        <div class="form-group">
+          <div class="form-felid">
+            <label>Skill Name</label>
+            <input type="text" placeholder="Skill Name" formControlName="skillName">
+            <app-input-error *ngIf="skillForm.get('skillName').touched && skillForm.get('skillName').hasError('required')">
+                Skill Name is required</app-input-error>
+          </div>
+          <div class="btn">
+            <button class="border-btn" (click)="cancel()">Cancel</button>
+            <app-button label="Save" *ngIf="!data"  [disabled]="skillForm.invalid"  (click)="addSkill()"></app-button>
+            <app-button label="Update"  *ngIf="data"  [disabled]="skillForm.invalid"  (click)="updateSkill()"></app-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

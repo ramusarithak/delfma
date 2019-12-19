@@ -1,0 +1,119 @@
+<div class="dashboard">
+    <div class="sidenav">
+        <div class="header-nav">
+            <h1>Facility<br>
+                Management</h1>
+        </div>
+        <div class="sidenav-navlist">
+            <div class="item" routerLink="serviceprovider" routerLinkActive="active-link">
+                <div class="icon">
+                    <img src="../../assets/icon/dashboard.svg">
+                </div>
+                <div class="title">
+                    <span>Service Provider</span>
+                </div>
+            </div>
+            <!--<div class="item" routerLink=".">
+                <div class="icon">
+                    <img src="../../assets/icon/dashboard.svg">
+                </div>
+                <div class="title">
+                    <span>Customer Management</span>
+                </div>
+            </div>
+            <div class="item" routerLink=".">
+                <div class="icon">
+                    <img src="../../assets/icon/dashboard.svg">
+                </div>
+                <div class="title">
+                    <span>Facility Management</span>
+                </div>
+            </div>-->
+            <div class="item" routerLink="role" routerLinkActive="active-link">
+                <div class="icon">
+                    <img src="../../assets/icon/dashboard.svg">
+                </div>
+                <div class="title">
+                    <span>Role Management</span>
+                </div>
+            </div>
+            <!-- <div class="item" routerLink="." routerLinkActive="active-link">
+                <div class="icon">
+                    <img src="../../assets/icon/dashboard.svg">
+                </div>
+                <div class="title">
+                    <span>Access Management</span>
+                </div>
+            </div> -->
+            <div class="item" routerLink="jobstatus" routerLinkActive="active-link">
+                <div class="icon">
+                    <img src="../../assets/icon/dashboard.svg">
+                </div>
+                <div class="title">
+                    <span>Job Status</span>
+                </div>
+            </div>
+            <div class="item" routerLink="jobpriority" routerLinkActive="active-link">
+                <div class="icon">
+                    <img src="../../assets/icon/dashboard.svg">
+                </div>
+                <div class="title">
+                    <span>Job Priority</span>
+                </div>
+            </div>
+            <div class="item" routerLink="skill" routerLinkActive="active-link">
+                <div class="icon">
+                    <img src="../../assets/icon/dashboard.svg">
+                </div>
+                <div class="title">
+                    <span>Skill Management</span>
+                </div>
+            </div>
+            <div class="item" routerLink="user" routerLinkActive="active-link">
+                <div class="icon">
+                    <img src="../../assets/icon/user.svg">
+                </div>
+                <div class="title">
+                    <span>Users</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidenavcontent">
+        <div class="header">
+            <div class="msg-icon margin">
+                <img src="../../assets/icon/msg.svg">
+            </div>
+            <div class="notify-icon margin">
+                <img src="../../assets/icon/notify.svg">
+            </div>
+            <div class="line margin"></div>
+            <div class="profile-short-info margin">
+                <div class="names">
+                    <span class="role">{{name | titlecase}}</span>
+                    <span class="name">Superadmin</span>
+                </div>
+                <div class="pro-img">
+                    <span>SA</span>
+                </div>
+            </div>
+            <div class="cus-menu">
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item routerLink="account">
+                        <span>My Account</span>
+                    </button>
+                    <button mat-menu-item (click)="logout()">
+                        <span>Logout</span>
+                    </button>
+                </mat-menu>
+            </div>
+        </div>
+        <div class="body-content">
+            <!-- <ion-router-outlet></ion-router-outlet> -->
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

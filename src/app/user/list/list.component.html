@@ -1,0 +1,101 @@
+<div class="splist">
+  <div class="dash-header">
+    <div class="list">
+      <div class="text">
+        User Management
+      </div>
+      <div class="search-input">
+        <mat-icon>search</mat-icon>
+        <input type="text" placeholder="Search Users">
+      </div>
+    </div>
+  </div>
+  <div class="listing">
+    <div class="btn">
+      <button class="addbtn" routerLink="adduser"><span>+</span>Add User</button>
+    </div>
+    <div class="filter">
+      <select>
+        <option value="volvo">All Users</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </select>
+      <select>
+        <option value="volvo">All prodviders</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </select>
+    </div>
+    <div class="table">
+      <table cdk-table [dataSource]="dataSource">
+        <!-- Position Column -->
+        <ng-container cdkColumnDef="profile">
+            <th cdk-header-cell *cdkHeaderCellDef> Profile </th>
+            <td cdk-cell *cdkCellDef="let element"> <img *ngIf="element.profilePicture" [src]="element.profilePicture"> </td>
+          </ng-container>
+
+        <ng-container cdkColumnDef="username">
+          <th cdk-header-cell *cdkHeaderCellDef> Username </th>
+          <td cdk-cell *cdkCellDef="let element"> {{element.userName}} </td>
+        </ng-container>
+
+        <ng-container cdkColumnDef="email">
+          <th cdk-header-cell *cdkHeaderCellDef> Email </th>
+          <td cdk-cell *cdkCellDef="let element"> {{element.emailId}} </td>
+        </ng-container>
+
+        <ng-container cdkColumnDef="role">
+          <th cdk-header-cell *cdkHeaderCellDef> Role </th>
+          <td cdk-cell *cdkCellDef="let element"> {{element.roleName | titlecase}} </td>
+        </ng-container>
+
+        <ng-container cdkColumnDef="mobile">
+          <th cdk-header-cell *cdkHeaderCellDef> Mobile </th>
+          <td cdk-cell *cdkCellDef="let element"> {{element.mobileNo}} </td>
+        </ng-container>
+
+        <ng-container cdkColumnDef="status">
+          <th cdk-header-cell *cdkHeaderCellDef> Status </th>
+          <td cdk-cell *cdkCellDef="let element">
+            <ng-template [ngIf]="element.isActive == 1" [ngIfElse]="inActive">
+              <span class="cricle"></span> Active
+            </ng-template>
+            <ng-template #inActive>
+              <span class="cricle inactive"></span> In Active
+            </ng-template>
+          </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container cdkColumnDef="action">
+          <th cdk-header-cell *cdkHeaderCellDef class="action-hed"> Action </th>
+          <td cdk-cell *cdkCellDef="let element">
+            <mat-icon [routerLink]="element.id">edit</mat-icon>
+            <mat-icon>delete</mat-icon>
+          </td>
+        </ng-container>
+
+        <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
+        <tr cdk-row *cdkRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <!-- <div class="pagintator">
+        <div class="numbers">
+          <div class="btns">
+            <div class="pervious">
+              <mat-icon>navigate_before</mat-icon>
+            </div>
+            <div class="next">
+              <mat-icon>navigate_next</mat-icon>
+            </div>
+          </div>
+          <div class="item active">1</div>
+          <div class="item">2</div>
+          <div class="item">3</div>
+          <div class="item">4</div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>

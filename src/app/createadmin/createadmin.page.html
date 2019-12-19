@@ -1,0 +1,29 @@
+<div id="admin">
+    <div class="login-blank">
+        <h1>Let’s Kick Now !</h1>      
+    </div>
+    <div class="login-content">
+        <h1>Create Super Admin
+          <span class="line"></span>
+        </h1>
+        <div class="form" [formGroup]="adminForm">          
+          <div class="form-field">
+            <app-label label="User Name"></app-label>
+            <app-input placeholder="Enter your username" type="text" [form]="adminForm" name="username"></app-input>
+            <app-input-error *ngIf="adminForm.get('username').touched && adminForm.get('username').hasError('required')">Username is required</app-input-error>
+          </div>
+          <div class="form-field">
+            <app-label label="Email"></app-label>
+            <app-input placeholder="Enter your email address" type="email" [form]="adminForm" name="email"></app-input>
+            <app-input-error *ngIf="adminForm.get('email').touched && adminForm.get('email').hasError('required')">Email is required</app-input-error>
+          </div>
+          <div class="form-field">
+            <app-label label="Mobile"></app-label>
+            <app-input placeholder="Enter your mobile number" type="number" [form]="adminForm" name="mobile"></app-input>
+            <app-input-error *ngIf="adminForm.get('mobile').touched && adminForm.get('mobile').hasError('required')">Mobile is required</app-input-error>
+          </div>
+          <app-button label="Submit" (click)="getAdmin()" [disabled]="adminForm.invalid"></app-button>
+        </div>
+    </div>
+  </div>
+  

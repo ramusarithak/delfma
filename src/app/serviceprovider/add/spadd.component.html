@@ -1,0 +1,246 @@
+<div class="spadd">
+  <div class="dash-header">
+    <div class="list">
+      <div class="text" *ngIf="!updateData">
+        Add Service Provider
+      </div>
+      <div class="text" *ngIf="updateData">
+        Edit Service Provider
+      </div>
+    </div>
+  </div>
+  <div class="exp-pand">
+    <mat-accordion class="example-headers-align" [formGroup]="addForm">
+      <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Service Provider Details
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="form-block">
+          
+          <div class="file">
+            <input type="file" class="filetype" (change)="imageUpload($event)" accept="image/x-png,image/jpg,image/jpeg">
+            <div class="logo" *ngIf="!imgUrl">
+              <mat-icon>add_a_photo</mat-icon>
+              <div class="overlay"></div>
+            </div>
+            <img [src]="imgUrl" *ngIf="imgUrl">
+          </div>
+          
+          <div class="forms">
+            <div class="form-felid">
+              <label>Service provider name</label>
+              <input type="text" placeholder="Service provider name" formControlName="serviceProviderName">
+              <app-input-error
+                *ngIf="addForm.get('serviceProviderName').touched && addForm.get('serviceProviderName').hasError('pattern')">
+                Enter valid Name</app-input-error>
+
+              <app-input-error
+                *ngIf="addForm.get('serviceProviderName').touched && addForm.get('serviceProviderName').hasError('required')">
+                Service provider name is required</app-input-error>
+            </div>
+            <div class="form-felid">
+              <label>Address</label>
+              <input type="text" placeholder="Enter your address" formControlName="serviceProviderAddress">
+              <app-input-error
+                *ngIf="addForm.get('serviceProviderAddress').touched && addForm.get('serviceProviderAddress').hasError('required')">
+                Address is required</app-input-error>
+              <div class="inner-form">
+                <div class="form-felid">
+                  <input type="text" placeholder="Country" formControlName="serviceProviderCountry">
+                  <app-input-error
+                    *ngIf="addForm.get('serviceProviderCountry').touched && addForm.get('serviceProviderCountry').hasError('required')">
+                    Country is required</app-input-error>
+                </div>
+                <div class="form-felid">
+                  <input type="text" placeholder="State" formControlName="serviceProviderState">
+                  <app-input-error
+                    *ngIf="addForm.get('serviceProviderState').touched && addForm.get('serviceProviderState').hasError('required')">
+                    State is required</app-input-error>
+                  <app-input-error
+                    *ngIf="addForm.get('serviceProviderState').touched && addForm.get('serviceProviderState').hasError('pattern')">
+                    Enter valid State</app-input-error>
+                </div>
+                <div class="form-felid">
+                  <input type="number" ngModel maxlength="6" placeholder="Zip Code"
+                    formControlName="serviceProviderZipCode">
+                  <app-input-error
+                    *ngIf="addForm.get('serviceProviderZipCode').touched && addForm.get('serviceProviderZipCode').hasError('required')">
+                    ZipCode is required</app-input-error>
+                  <!-- <app-input-error
+                        *ngIf="addForm.get('serviceProviderZipCode').touched && addForm.get('serviceProviderZipCode').hasError('pattern')">
+                        Enter valid zipCode </app-input-error> -->
+
+                </div>
+
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-felid">
+                <label>Email</label>
+                <input type="text" placeholder="exampl@gmail.com" formControlName="serviceProviderEmail">
+                <app-input-error
+                  *ngIf="addForm.get('serviceProviderEmail').touched && addForm.get('serviceProviderEmail').hasError('required')">
+                  Email is required</app-input-error>
+                <app-input-error
+                  *ngIf="addForm.get('serviceProviderEmail').touched && addForm.get('serviceProviderEmail').hasError('pattern')">
+                  Enter the valid email id </app-input-error>
+              </div>
+              <div class="form-felid">
+                <label>Mobile</label>
+                <input type="number" ngModel maxlength="10" placeholder="0000000000"
+                  formControlName="serviceProviderMobileNo">
+                <app-input-error
+                  *ngIf="addForm.get('serviceProviderMobileNo').touched && addForm.get('serviceProviderMobileNo').hasError('required')">
+                  MobileNo is required</app-input-error>
+                <!-- <app-input-error
+                    *ngIf="addForm.get('serviceProviderMobileNo').touched && addForm.get('serviceProviderMobileNo').hasError('pattern')">
+                    Enter the valid mobile number</app-input-error> -->
+              </div>
+              <div class="form-felid">
+                <label>Phone</label>
+                <input type="number" ngModel maxlength="10" placeholder="0000000000"
+                  formControlName="serviceProviderPhoneNo">
+                <app-input-error
+                  *ngIf="addForm.get('serviceProviderPhoneNo').touched && addForm.get('serviceProviderPhoneNo').hasError('required')">
+                  PhoneNo is required</app-input-error>
+                <!-- <app-input-error
+                    *ngIf="addForm.get('serviceProviderPhoneNo').touched && addForm.get('serviceProviderPhoneNo').hasError('pattern')">
+                    Enter the valid phone number</app-input-error> -->
+
+              </div>
+              <div class="form-felid">
+                <label>VAT No</label>
+                <input type="number" ngModel maxlength="11" placeholder="0000 0000" formControlName="vat">
+                <app-input-error *ngIf="addForm.get('vat').touched && addForm.get('vat').hasError('required')">Vat is
+                  required</app-input-error>
+                <!-- <app-input-error *ngIf="addForm.get('vat').touched && addForm.get('vat').hasError('pattern')">
+                    Enter the valid vat number</app-input-error> -->
+
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- <mat-form-field>
+          <input matInput placeholder="First name">
+        </mat-form-field> -->
+
+        <!-- <mat-form-field>
+          <input matInput type="number" min="1" placeholder="Age">
+        </mat-form-field> -->
+
+        <mat-action-row>
+          <!-- <button mat-button color="primary" (click)="nextStep()">Next</button> -->
+          <app-button label="Next" (click)="nextStep()"></app-button>
+        </mat-action-row>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Contact Person Details
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="form-block">
+          <div class="forms">
+            <div class="form-felid">
+              <label>Contact Person Name</label>
+              <input type="text" placeholder="Contact Person Name" formControlName="serviceProviderContactName">
+              <app-input-error
+                *ngIf="addForm.get('serviceProviderContactName').touched && addForm.get('serviceProviderContactName').hasError('required')">
+                Name is required</app-input-error>
+              <app-input-error
+                *ngIf="addForm.get('serviceProviderContactName').touched && addForm.get('serviceProviderContactName').hasError('pattern')">
+                Enter valid Name</app-input-error>
+
+
+            </div>
+            <div class="form-felid">
+              <label>Address</label>
+              <input type="text" placeholder="Enter your address" formControlName="serviceProviderContactAddress">
+              <app-input-error
+                *ngIf="addForm.get('serviceProviderContactAddress').touched && addForm.get('serviceProviderContactAddress').hasError('required')">
+                Address is required</app-input-error>
+
+              <div class="inner-form">
+                <div class="form-felid">
+                  <input type="text" placeholder="Country" formControlName="serviceProviderContactcountry">
+                  <app-input-error
+                    *ngIf="addForm.get('serviceProviderContactcountry').touched && addForm.get('serviceProviderContactcountry').hasError('required')">
+                    Country is required</app-input-error>
+                  <app-input-error
+                    *ngIf="addForm.get('serviceProviderContactcountry').touched && addForm.get('serviceProviderContactcountry').hasError('pattern')">
+                    Enter valid Country</app-input-error>
+                </div>
+                <div class="form-felid">
+                  <input type="text" placeholder="State" formControlName="serviceProviderContactState">
+                  <app-input-error
+                    *ngIf="addForm.get('serviceProviderContactState').touched && addForm.get('serviceProviderContactState').hasError('required')">
+                    State is required</app-input-error>
+                  <app-input-error
+                    *ngIf="addForm.get('serviceProviderContactState').touched && addForm.get('serviceProviderContactState').hasError('pattern')">
+                    Enter valid State</app-input-error>
+                </div>
+                <div class="form-felid">
+                  <input type="text" placeholder="Zip Code" formControlName="serviceProviderContactZipcode">
+                  <app-input-error
+                    *ngIf="addForm.get('serviceProviderContactZipcode').touched && addForm.get('serviceProviderContactZipcode').hasError('required')">
+                    Zipcode is required</app-input-error>
+                  <app-input-error
+                    *ngIf="addForm.get('serviceProviderContactZipcode').touched && addForm.get('serviceProviderContactZipcode').hasError('pattern')">
+                    enter valid ZipCode format</app-input-error>
+                </div>
+
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-felid">
+                <label>Email</label>
+                <input type="text" placeholder="exampl@gmail.com" formControlName="serviceProviderContactEmail">
+                <app-input-error
+                  *ngIf="addForm.get('serviceProviderContactEmail').touched && addForm.get('serviceProviderContactEmail').hasError('required')">
+                  Email is required</app-input-error>
+                <app-input-error
+                  *ngIf="addForm.get('serviceProviderContactEmail').touched && addForm.get('serviceProviderContactEmail').hasError('pattern')">
+                  enter valid email format</app-input-error>
+
+
+
+
+              </div>
+              <div class="form-felid">
+                <label>Mobile</label>
+                <input type="text" placeholder="0000 0000" formControlName="serviceProviderContactMobile">
+                <app-input-error
+                  *ngIf="addForm.get('serviceProviderContactMobile').touched && addForm.get('serviceProviderContactMobile').hasError('required')">
+                  Mobile is required</app-input-error>
+                <app-input-error
+                  *ngIf="addForm.get('serviceProviderContactMobile').touched && addForm.get('serviceProviderContactMobile').hasError('pattern')">
+                  enter valid MobileNo format</app-input-error>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <mat-form-field>
+          <input matInput placeholder="Country">
+        </mat-form-field>
+     -->
+        <mat-action-row>
+          <button mat-button color="warn" (click)="prevStep()">Previous</button>
+          
+          <app-button label="Submit" *ngIf="!updateData" [disabled]="addForm.invalid" (click)="addService()">
+          </app-button>
+          <app-button label="Update" *ngIf="updateData"  [disabled]="addForm.invalid" (click)="updateSpDet()"></app-button>
+
+         
+        </mat-action-row>
+      </mat-expansion-panel>
+
+
+    </mat-accordion>
+  </div>
+</div>

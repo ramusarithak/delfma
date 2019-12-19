@@ -1,0 +1,28 @@
+<div class="spadd">
+  <div class="dash-header">
+    <div class="list">
+      <div class="text">
+        Add Job Status
+      </div>
+    </div>
+  </div>
+  <div class="exp-pand">
+    <div class="form-block">
+      <div class="forms" [formGroup]="statusForm">
+        <div class="form-group">
+          <div class="form-felid">
+            <label>Job Status</label>
+            <input type="text" placeholder="Job Status" formControlName="jobStatus">
+            <app-input-error *ngIf="statusForm.get('jobStatus').touched && statusForm.get('jobStatus').hasError('required')">
+                Job Status is required</app-input-error>
+          </div>
+          <div class="btn">
+            <button class="border-btn" (click)="cancel()">Cancel</button>
+            <app-button label="Save" *ngIf="!data" [disabled]="statusForm.invalid" (click)="addStatus()"></app-button>
+            <app-button label="Update"  *ngIf="data" [disabled]="statusForm.invalid" (click)="updateStatus()"></app-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

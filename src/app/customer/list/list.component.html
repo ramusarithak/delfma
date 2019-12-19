@@ -1,0 +1,123 @@
+<div class="splist">
+  <div class="dash-header">
+    <div class="list">
+      <div class="text">
+        Customers
+      </div>
+      <div class="search-input">
+        <input type="text" placeholder="search" [formControl]="searchWord" (keyup)="valueChanges($event)">
+      </div>
+    </div>
+  </div>
+  <div class="listing" *ngIf="!tableView">
+    <div class="list-item add-provider" routerLink="addcustomer">
+      <div class="btn">
+        <span>+</span>
+      </div>
+      <div class="title">
+        <span>Add Customers</span>
+      </div>
+    </div>
+    <!-- [routerLink]="customer.id" -->
+    <div class="list-item list-provider"  *ngFor="let customer of dataSource" >
+      <div class="edit-icon">
+        <!-- <img src="../../../assets/icon/edit.svg" [routerLink]="'edit/'+customer.id"> -->
+        <!-- <img src="../../../assets/icon/coner.svg"> -->
+        <div class="cus-menu">
+          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+              <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+              <button mat-menu-item [routerLink]="'edit/'+customer.id">
+                  Edit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mat-icon >edit</mat-icon>
+              </button>
+              <button mat-menu-item (click)="deleteCP(customer.id)">
+                  <span>Delete &nbsp;&nbsp;&nbsp;<mat-icon>delete</mat-icon></span>
+              </button>
+          </mat-menu>
+      </div>
+      </div>
+      <!-- <div class="sp-logo">
+        <img src="../../../assets/imagelogo.svg">
+      </div> -->
+
+      <div class="sp-logo">
+        <img [src]="customer.customerPicture">
+      </div>
+      <div class="title">
+        <span>{{customer.customerName}}</span>
+      </div>
+      <div class="sb-title">
+        <span>{{customer.customerCountry}}, {{customer.customerCountry}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="table-listing" *ngIf="tableView">
+      <div class="btn">
+        <button class="addbtn" routerLink="addcustomer"><span>+</span>Add Customer</button>
+      </div>
+      <div class="table">
+        <table cdk-table [dataSource]="dataSource">
+          <!-- Position Column -->
+          <!-- <ng-container cdkColumnDef="logo">
+            <th cdk-header-cell *cdkHeaderCellDef> Logo </th>
+            <td cdk-cell *cdkCellDef="let element">        
+              <img src="../../../assets/imagelogo.svg">
+            </td>
+          </ng-container> -->
+          <ng-container cdkColumnDef="logo">
+            <th cdk-header-cell *cdkHeaderCellDef> Logo </th>
+            <td cdk-cell *cdkCellDef="let element"> <img *ngIf="element.customerPicture" [src]="element.customerPicture"> </td>
+          </ng-container>
+
+          <ng-container cdkColumnDef="name">
+            <th cdk-header-cell *cdkHeaderCellDef> Name </th>
+            <td cdk-cell *cdkCellDef="let element"> {{element.customerName}} </td>
+          </ng-container>
+
+          <ng-container cdkColumnDef="mobile">
+              <th cdk-header-cell *cdkHeaderCellDef> Phone No </th>
+              <td cdk-cell *cdkCellDef="let element"> {{element.customerPhoneNo}} </td>
+            </ng-container>
+
+            <ng-container cdkColumnDef="state">
+                <th cdk-header-cell *cdkHeaderCellDef> State </th>
+                <td cdk-cell *cdkCellDef="let element"> {{element.customerState}} </td>
+              </ng-container>
+
+              <ng-container cdkColumnDef="country">
+                  <th cdk-header-cell *cdkHeaderCellDef> Country </th>
+                  <td cdk-cell *cdkCellDef="let element"> {{element.customerCountry}} </td>
+                </ng-container>
+  
+          <!-- Name Column -->
+          <ng-container cdkColumnDef="action">
+            <th cdk-header-cell *cdkHeaderCellDef class="action-hed"> Action </th>
+            <td cdk-cell *cdkCellDef="let element">
+              <mat-icon [routerLink]="'edit/'+element.id">edit</mat-icon>
+              <mat-icon>delete</mat-icon>
+            </td>
+          </ng-container>
+  
+          <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
+          <tr cdk-row *cdkRowDef="let row; columns: displayedColumns;" [routerLink]="row.id"></tr>
+        </table>
+        <!-- <div class="pagintator">
+          <div class="numbers">
+            <div class="btns">
+              <div class="pervious">
+                <mat-icon>navigate_before</mat-icon>
+              </div>
+              <div class="next">
+                <mat-icon>navigate_next</mat-icon>
+              </div>
+            </div>
+            <div class="item active">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+</div>
